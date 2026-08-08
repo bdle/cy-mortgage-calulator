@@ -1,0 +1,30 @@
+name: TestOps Pipeline 
+
+on:
+  #schedule:
+  #  - cron: '20 10 * * 1-5' # 10:20AM UTC (6:20AM EST) M-F
+        
+  workflow_dispatch:
+    inputs:
+      dispatcher_text:
+        required: true
+        description: 'Enter your name to dispatch workflow manually'
+        default: 'Harry Potter'
+
+run-name: TestOps Pipeline 
+
+jobs:
+  sanity_suite:       
+    uses: ./.github/workflows/reusable_workflow.yml
+    secrets: inherit
+    with:
+      test_suite: 'tier1'
+      dispatcher_text: ${{ inputs.dispatcher_text || 'Otto Matic Caller for TestOps Pipeline' }}
+
+  # api_suite:    
+  #   needs: api_smoke
+  #   uses: ./.github/workflows/reusable_workflow.yml
+  #   secrets: inherit
+  #   with:
+  #     test_suite: 'tier2'
+  #     dispatcher_text: ${{ inputs.dispatcher_text || 'Otto Matic Caller for TestOps Pipeline' }}
