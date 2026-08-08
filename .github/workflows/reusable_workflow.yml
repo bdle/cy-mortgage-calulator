@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
+        with:
+          ssh-key: ${{ secrets.GITHUB_BOT_KEY }}
+          repository: bdle/cy-mortgage-calulator
 
       - name: Install Dependencies
         run: npm install
