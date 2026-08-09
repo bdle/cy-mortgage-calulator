@@ -1,8 +1,8 @@
 name: TestOps Pipeline 
 
 on:
-  #schedule:
-  #  - cron: '20 10 * * 1-5' # 10:20AM UTC (6:20AM EST) M-F
+  schedule:
+   - cron: '20 10 * * *' # 10:20AM UTC (6:20AM EST) everyday
         
   workflow_dispatch:
     inputs:
