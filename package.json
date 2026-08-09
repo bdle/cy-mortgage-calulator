@@ -6,7 +6,8 @@
 	"scripts": {
 		"cypress:open": "cypress open",
 		"cypress:run": "cypress run",
-		"tier1": "cypress run --spec \"cypress/e2e/1-sanity/*.cy.js\""
+		"tier1": "cypress run --spec \"cypress/e2e/1-sanity/*.cy.js\"",
+		"tier2": "cypress run --spec \"cypress/e2e/2-smoke/*.cy.js\""
 	},
 	"devDependencies": {
 		"cypress": "^13.17.0",

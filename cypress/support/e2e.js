@@ -15,3 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './common_funcs'
+Cypress.on('uncaught:exception', (err, runnable) => {
+    console.log(err.message);
+    console.trace();
+    return false;
+});
