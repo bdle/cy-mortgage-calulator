@@ -3,6 +3,10 @@ name: Cypress Tests
 on:
   workflow_call:
     inputs:
+      url: 
+        required: true
+        type: string
+        description: targeted site
       test_suite:
         required: true
         type: string
@@ -28,4 +32,6 @@ jobs:
         run: npm install
 
       - name: Cypress Run Triggered by ${{ inputs.dispatcher_text }}
-        run: npm run ${{ inputs.test_suite }}
+        run: |
+          CYPRESS_BASE_URL=${{ inputs.url }} \
+          npm run ${{ inputs.test_suite }}
