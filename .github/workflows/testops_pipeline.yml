@@ -9,7 +9,8 @@ on:
       url:
         required: true
         type: string
-        description: https://bdle.github.io/mortgage-calculator/
+        description: Enter a url for tests
+        default: https://bdle.github.io/mortgage-calculator/
       dispatcher_text:
         required: true
         description: 'Enter your name to dispatch workflow manually'
