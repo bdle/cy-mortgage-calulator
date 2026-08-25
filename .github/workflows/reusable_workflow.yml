@@ -32,6 +32,10 @@ jobs:
         run: npm install
 
       - name: Cypress Run Triggered by ${{ inputs.dispatcher_text }}
+        env:
+          # make sure create a Github Actions secret key FIREBASE_SERVICE_ACCOUNT
+          # and store all raw data from serviceAccount.json which is generated from Firebase service account credentials
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
           CYPRESS_BASE_URL=${{ inputs.url }} \
           npm run ${{ inputs.test_suite }}
