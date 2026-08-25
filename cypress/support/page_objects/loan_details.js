@@ -22,5 +22,8 @@ export class LoanDetails {
     enterDownPaymentAmount(down_payment_amount) {
         cy.get('[data-cy="down-payment-amount-input"]').clear().type(down_payment_amount);
     }
+    enterInterestRate(rate) {
+        cy.get('[data-cy="interest-rate-input"]').clear().type(rate);
+    }
 }
 export const loan_details = new LoanDetails();

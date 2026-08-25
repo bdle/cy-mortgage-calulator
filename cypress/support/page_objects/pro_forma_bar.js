@@ -26,8 +26,14 @@ export class ProForma {
     verifyProFormaInputField() {
         cy.get('input[data-cy="proforma-input"]', { timeout: SHORT_WAIT }).should('be.visible');
     }
+    enterProFormaName(name) {
+        cy.get('input[data-cy="proforma-input"]', { timeout: SHORT_WAIT }).should('be.visible').type(name)
+    }
     verifySaveButton() {
         cy.get('button[data-cy="save-proforma-btn"]', { timeout: SHORT_WAIT }).should('be.visible');
+    }
+    clickSaveButton() {
+        cy.get('button[data-cy="save-proforma-btn"]', { timeout: SHORT_WAIT }).should('be.visible').click();
     }
     verifySignOutButtonNotExist() {
         cy.contains('button', "Sign Out", { timeout: SHORT_WAIT }).should('not.exist');
